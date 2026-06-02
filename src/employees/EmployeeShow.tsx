@@ -1,26 +1,17 @@
 import {
   BooleanField,
-  EditButton,
   EmailField,
-  ListButton,
   NumberField,
   Show,
   SimpleShowLayout,
   TextField,
-  TopToolbar,
 } from "react-admin";
-
-const ShowActions = () => (
-  <TopToolbar>
-    <ListButton label="Retour à la liste" />
-    <EditButton label="Modifier" />
-  </TopToolbar>
-);
+import { DepartmentStats } from "./DepartmentStats";
+import { InternsByManager } from "./InternsByManager";
 
 export const EmployeeShow = () => (
-  <Show actions={<ShowActions />} title="Détail employé">
+  <Show>
     <SimpleShowLayout>
-      <TextField source="id" label="ID" />
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <EmailField source="email" label="Email" />
@@ -31,6 +22,8 @@ export const EmployeeShow = () => (
         options={{ style: "currency", currency: "EUR" }}
       />
       <BooleanField source="active" label="Actif" />
+      <DepartmentStats />
+      <InternsByManager />
     </SimpleShowLayout>
   </Show>
 );
