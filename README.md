@@ -35,3 +35,11 @@ Getting started with React Admin
 
 - Question 5.1 : What is the difference between SimpleShowLayout and TabbedShowLayout?
   - SimpleShowLayout just displays all fields vertically in one section, no navigation needed. TabbedShowLayout organizes fields into clickable tabs, which is useful when you have a lot of fields to group by category. We used SimpleShowLayout since we only have 6 fields to show.
+
+### Exercise 6 — InternList
+
+- Question 6.1: What HTTP request does ReferenceField generate to resolve the manager? Check the Network tab?
+  ReferenceField sends a GET request to http://localhost:3002/employees/1 — one request per unique manager referenced in the list. React-Admin automatically groups and deduplicates these calls via its caching system, so if two interns have the same manager, only a single call is made.
+
+- Question 6.2: What happens visually if managerId doesn't match any employee?
+  ReferenceField displays an error indicator in place of the name—usually an icon or empty text, depending on the version. No crash occurs; React-Admin silently handles the 404 returned by json-server.
