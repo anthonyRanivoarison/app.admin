@@ -9,13 +9,7 @@ import {
   minValue,
   required,
 } from "react-admin";
-
-const departmentChoices = [
-  { id: "Informatique", name: "Informatique" },
-  { id: "Marketing", name: "Marketing" },
-  { id: "RH", name: "RH" },
-  { id: "Finance", name: "Finance" },
-];
+import { departmentChoices } from "./departementChoices";
 
 export const EmployeeCreate = () => (
   <Create redirect="list" title="Ajouter un employé">

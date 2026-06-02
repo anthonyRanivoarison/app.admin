@@ -11,13 +11,7 @@ import {
 } from "react-admin";
 import { useWatch } from "react-hook-form";
 import { InternTitle } from "./InternTitle";
-
-const departmentChoices = [
-  { id: "Informatique", name: "Informatique" },
-  { id: "Marketing", name: "Marketing" },
-  { id: "RH", name: "RH" },
-  { id: "Finance", name: "Finance" },
-];
+import { departmentChoices } from "./departementChoices";
 
 const RemunerationInput = () => {
   const isRemunerate = useWatch({ name: "isRemunerate" });
