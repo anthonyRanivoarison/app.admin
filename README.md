@@ -43,3 +43,19 @@ Getting started with React Admin
 
 - Question 6.2: What happens visually if managerId doesn't match any employee?
   ReferenceField displays an error indicator in place of the name—usually an icon or empty text, depending on the version. No crash occurs; React-Admin silently handles the 404 returned by json-server.
+
+### Exercise 7 — InternCreate & InternEdit
+
+- Question 7.1 : What HTTP method is sent when submitting InternCreate? To which endpoint?
+  POST http://localhost:3002/interns avec le JSON complet du stagiaire dans le body. C'est le comportement standard de ra-data-json-server pour l'action create.
+
+- Question 7.2 : Which hook do you use for the conditional validation of remuneration, and why?
+  On utilise useWatch de react-hook-form (intégré à React-Admin). Il permet de lire en temps réel la valeur courante de isRemunerate depuis le formulaire sans re-render excessif. C'est nécessaire car la règle de validation dépend d'un autre champ du même formulaire.
+
+### Exercise 8 — InternShow & ManagerCard
+
+- Question 8.1 : What is the difference between useGetOne and ReferenceField? When should you prefer one over the other?
+  ReferenceField est un composant déclaratif à utiliser dans les layouts React-Admin (Show, Datagrid) — il gère automatiquement le cache et le rendu. useGetOne est un hook impératif pour les composants custom qui ont besoin de charger une ressource liée en dehors d'un contexte React-Admin standard. On préfère useGetOne quand on veut contrôler précisément l'affichage (états pending/error/data), ou quand on construit un composant autonome comme ManagerCard.
+
+- Question 8.2 : What happens if useGetOne receives id: undefined without the enabled option? How does this parameter solve the problem?
+  Sans enabled, React-Admin envoie immédiatement GET /employees/undefined, ce qui génère une erreur 404 ou un comportement inattendu. L'option enabled: !!managerId empêche l'appel tant que managerId est undefined ou null, évitant ainsi toute requête invalide.
