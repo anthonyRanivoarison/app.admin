@@ -11,8 +11,8 @@ import type {
   RaRecord,
   UpdateManyParams,
   UpdateParams,
-} from "ra-core";
-import { fetchUtils } from "ra-core";
+} from "react-admin";
+import { fetchUtils } from "react-admin";
 
 const fetchJson = fetchUtils.fetchJson;
 
