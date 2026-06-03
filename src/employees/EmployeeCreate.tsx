@@ -9,7 +9,7 @@ import {
   minValue,
   required,
 } from "react-admin";
-import { departmentChoices } from "./departementChoices";
+import { departmentChoices } from "./departmentChoices";
 
 export const EmployeeCreate = () => (
   <Create redirect="list" title="Ajouter un employé">

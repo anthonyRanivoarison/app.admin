@@ -10,13 +10,7 @@ import {
   required,
 } from "react-admin";
 import { useWatch } from "react-hook-form";
-
-const departmentChoices = [
-  { id: "Informatique", name: "Informatique" },
-  { id: "Marketing", name: "Marketing" },
-  { id: "RH", name: "RH" },
-  { id: "Finance", name: "Finance" },
-];
+import { departmentChoices } from "./departmentChoices";
 
 const RemunerationInput = () => {
   const isRemunerate = useWatch({ name: "isRemunerate" });

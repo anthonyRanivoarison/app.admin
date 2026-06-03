@@ -10,13 +10,7 @@ import {
   required,
   useRecordContext,
 } from "react-admin";
-
-const departmentChoices = [
-  { id: "Informatique", name: "Informatique" },
-  { id: "Marketing", name: "Marketing" },
-  { id: "RH", name: "RH" },
-  { id: "Finance", name: "Finance" },
-];
+import { departmentChoices } from "./departmentChoices";
 
 const EmployeeTitle = () => {
   const record = useRecordContext();
